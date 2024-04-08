@@ -48,7 +48,7 @@ class PriceControllerTest {
     }
 
     @Test
-    public void getPricesTestNoContent() {
+    public void getPricesTestNoFound() {
         MockHttpServletRequest request = new MockHttpServletRequest();
         RequestContextHolder.setRequestAttributes(new ServletRequestAttributes(request));
 
@@ -57,7 +57,7 @@ class PriceControllerTest {
         ResponseEntity<PriceResponse> responseEntity = priceController.getPrices(
                 LocalDateTime.of(2020, 06, 14, 18, 0, 0), 1, 1);
 
-        assertThat(responseEntity.getStatusCode().value()).isEqualTo(204);
+        assertThat(responseEntity.getStatusCode().value()).isEqualTo(404);
     }
 
     @Test

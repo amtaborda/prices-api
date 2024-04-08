@@ -56,7 +56,7 @@ public class PriceController {
                     .startDate(price.get().getStartDate()).build());
         }
 
-        return ResponseEntity.noContent().build();
+        return ResponseEntity.notFound().build();
     }
 
     /**
